@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct item{
+struct Item{
     double preco;
     int quant;
     string nome;
 };
 
 struct Nopilha{
-    item* produto;
+    Item* produto;
     Nopilha* prox;
 };
 
@@ -23,11 +23,11 @@ bool isempty(Nopilha* carrinho){
 }
 
 //função para adcionar produto no carrinho, produto será sempre adcionado ao topo da pilha
-void adcionar_produto(Nopilha*& carrinho,double preco,int quant,string nome){
+void adcionar_produto(Nopilha*& carrinho,Item* produto){
     Nopilha* novo = new Nopilha;
-    novo -> produto -> preco = preco;
-    novo -> produto -> quant  = quant;
-    novo -> produto -> nome = nome;
+    novo -> produto = produto;
+
+    //adcionar novo Nopilha no topo
     novo -> prox = carrinho;
     carrinho = novo;
 }
@@ -42,6 +42,8 @@ Nopilha* remover_produto(Nopilha*& carrinho){
         return p;
     }
 }
+
+void nozama()
 
 int main(){
     Nopilha* carrinho = criar_Nopilha();
