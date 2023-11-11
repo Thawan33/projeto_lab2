@@ -58,7 +58,7 @@ void menu(Nopilha* carrinho){
     double preco;
     string nome;
     cout << "Selecione a categoria dos produtos que deseja comprar \n";
-    cout << " [1] Eletronicos \n [2] Eletrodomésticos \n [3] Alimentos \n [4] vestuário \n [5] Livros \n";
+    cout << " [1] Eletronicos \n [2] Eletrodomésticos \n [3] Alimentos \n [4] vestuário \n [5] Livros \n [6] Finalizar compra \n";
     cin >> opc;
     switch(opc){
     case '1':
@@ -196,11 +196,18 @@ void menu(Nopilha* carrinho){
                 nozama(carrinho,20,quant,"livro 4");
                 break;
             default:
-                cout << "Opcao invalida";
+                cout << "Opcao invalida\n";
+                cout << "Deseja finalizar a compra? [S] [N] \n";
+                cin >> opc2;
+                if(opc2 == 'S'){
+                    //chamar função de finalizar compra
+                    break;
         }
-    
-    default:
+    case '6':
+        //chamar função de finalizar compra
         break;
+    default:
+        cout << "Opcao invalida";
     }
 }
 
