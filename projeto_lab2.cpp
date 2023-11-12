@@ -53,6 +53,9 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
 }
 double finalizar_compra(Nopilha* carrinho){
     double soma = 0;
+if(carrinho == NULL){
+	cout << "Nenhum produto adicionado :( ";
+	return NULL;
     while(carrinho != NULL){
         Nopilha* aux = remover_produto(carrinho);
         soma += ((aux->produto->preco) * (aux->produto->quant));
