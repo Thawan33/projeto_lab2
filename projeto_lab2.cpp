@@ -81,7 +81,7 @@ if(carrinho == NULL){
             cout << "O valor das parcelas sera de: R$" << soma/parcelas << endl;
             break;
         case '2':
-            cout << "Voce escolheu cartao de debito\n";
+            cout << "Voce escolheu cartao de debito\n em breve voce recebera um email com o comprovante de pagamento\n";
             break;
         case '3':
             cout << "Voce escolheu boleto\n";
