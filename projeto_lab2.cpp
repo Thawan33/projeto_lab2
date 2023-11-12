@@ -56,6 +56,7 @@ double finalizar_compra(Nopilha* carrinho){
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
 	return NULL;
+}
     while(carrinho != NULL){
         Nopilha* aux = remover_produto(carrinho);
         soma += ((aux->produto->preco) * (aux->produto->quant));
