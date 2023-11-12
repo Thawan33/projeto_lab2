@@ -162,6 +162,8 @@ if(carrinho == NULL){
 
 // FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
 void menu(Nopilha* carrinho){
+    char remove;
+    int cont = 0;
     char opc,opc2;
     string tamanho;
     int quant;
@@ -171,12 +173,9 @@ void menu(Nopilha* carrinho){
     system("cls");
     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\nSEJA BEM-VINDO A NOZAMA! \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "CATEGORIA DE PRODUTOS DISPONIVEIS \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    cout << " [1] Eletronicos \n [2] Eletrodomesticos \n [3] Alimentos \n [4] vestuario \n [5] Livros \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n [6] Carrinho de compras \n [7] Finalizar compra \n [0] Fechar Aplicativo -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
+    cout << " [1] Eletronicos \n [2] Eletrodomesticos \n [3] Alimentos \n [4] vestuario \n [5] Livros \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n [6] Carrinho de compras \n [7] Finalizar compra \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
     cin >> opc;
     switch(opc){
-     case '0':
-        cout << "\nVolte sempre :D";
-        cout <<"\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     case '1':
         cout << "\n *** OFERTAS DO DIA! ***\n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         cout << " [1] Notebook UltraBook 15 - R$2000 \n [2] Celular UIphone 26 - R$1200 \n [3] Videogame Station Play 5 - R$2200 \n [4] Televisao Mansung Smart 4K - R$2500 \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
@@ -413,8 +412,6 @@ void menu(Nopilha* carrinho){
         }
     case '6':
         system("cls");
-        char remove;
-        int cont = 0;
         cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n CARRINHO DE COMPRAS \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         if(carrinho == NULL){
         	cout << "Nenhum produto adicionado :( ";
@@ -434,6 +431,7 @@ void menu(Nopilha* carrinho){
                 goto inicio;          
               }
         cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+        break;
 
     
 
@@ -447,10 +445,32 @@ void menu(Nopilha* carrinho){
 
 }
 }
-
+void usuario(){
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n" << endl;
+    string usuario, senha_teste, login, senha_real;
+    cout << "**Bem vindo a Nozama!\nPara iniciar, crie um usuario e uma senha.\nUsuario: " << endl;
+    cin >> usuario;
+    cout << ">> Crie uma senha: ";
+    cin >> senha_teste;
+    system("cls");
+    cout << "-=-=-=-=-=-=-=-=- LOGIN -=-=-=-=-=-=-=-=-" << endl;
+    cout << ">> Usuario: ";
+    cin >> login;
+    cout << ">> Senha: ";
+    cin >> senha_real;
+    while(login != usuario or senha_real != senha_teste){
+        cout << ">> As informacoes nao conferem, por favor, tente novamente:" << endl;
+        cout << ">> Usuario: ";
+        cin >> login;
+        cout << ">> Senha: ";
+        cin >> senha_real;
+    }
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n" << endl;
+}
 
 int main(){
     Nopilha* carrinho = criar_Nopilha();
+    usuario();
     menu(carrinho);
     
     return 0;
