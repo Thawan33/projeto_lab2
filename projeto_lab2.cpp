@@ -51,17 +51,54 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     produto -> nome = nome;
     adcionar_produto(carrinho,produto);
 }
-double finalizar_compra(Nopilha* carrinho){
+void finalizar_compra(Nopilha* carrinho){
     double soma = 0;
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
-	return NULL;
-}
+} else{
     while(carrinho != NULL){
         Nopilha* aux = remover_produto(carrinho);
         soma += ((aux->produto->preco) * (aux->produto->quant));
 }
-return soma;
+}   pagamento:
+    system("cls");
+    cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n RESUMO DA COMPRA \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+    cout << "O valor total da compra foi de: R$" << soma << endl;
+    cout << "Forma de pagamento: \n [1] Cartao de credito \n [2] Cartao de debito \n [3] Boleto \n [4] Pix \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
+    char opc;
+    cin >> opc;
+    switch(opc){
+        case '1':
+            cout << "Voce escolheu cartao de credito\n";
+            cout << "Deseja dividir em quantas parcelas? \n > ";
+            int parcelas;
+            cin >> parcelas;
+            if (parcelas > 12 || parcelas < 1){
+                cout << "Numero de parcelas invalido";
+                system ("pause");
+                goto pagamento;
+            }
+            cout << "O valor das parcelas sera de: R$" << soma/parcelas << endl;
+            break;
+        case '2':
+            cout << "Voce escolheu cartao de debito\n";
+            break;
+        case '3':
+            cout << "Voce escolheu boleto\n";
+            cout << "O boleto foi enviado para o seu email\n Voce tem 3 dias para pagar o boleto :)\n";
+            break;
+        case '4':
+            cout << "Voce escolheu pix\n o codigo do pix foi enviado para o seu email\n Voce tem 30 minutos para pagar o pix :)\n";
+            break;
+        default:
+            cout << "Opcao invalida";
+            system ("pause");
+            goto pagamento;
+    }
+
+
+    cout << "Obrigado por comprar na Nozama! Volte sempre :D";
+    
 }
 
 // FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
@@ -72,7 +109,7 @@ void menu(Nopilha* carrinho){
     string nome;
     inicio:
     system("cls");
-    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\nSEJA BEM-VINDO A LOJA NOZAMA! \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\nSEJA BEM-VINDO A NOZAMA! \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "CATEGORIA DE PRODUTOS DISPONIVEIS \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << " [1] Eletronicos \n [2] Eletrodomesticos \n [3] Alimentos \n [4] vestuario \n [5] Livros \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n [6] Finalizar compra \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
     cin >> opc;
@@ -86,30 +123,43 @@ void menu(Nopilha* carrinho){
             cout << "Quantidade: ";
             cin >> quant;
             nozama(carrinho,2000,quant,"notebook UltraBook 15");
-            cout << "Produto adicionado com sucesso!";
+            cout << "Produto adicionado com sucesso!\n";
+            system ("pause");
             goto inicio;
         case '2':
             cout << "Quantidade: ";
             cin >> quant;
             nozama(carrinho,1200,quant,"celular UIphone 26");
-            cout << "Produto adicionado com sucesso!";
+            cout << "Produto adicionado com sucesso!\n";
+            system ("pause");
             goto inicio;
         case '3':
             cout << "Quantidade: ";
             cin >> quant;
             nozama(carrinho,2200,quant,"videogame Station Play 5");
-            cout << "Produto adicionado com sucesso!";
+            cout << "Produto adicionado com sucesso!\n";
+            system ("pause");
             goto inicio;
         case '4':
             cout << "Quantidade: ";
             cin >> quant;
             nozama(carrinho,2500,quant,"televisao Mansung Smart 4K");
-            cout << "Produto adicionado com sucesso!";
+            cout << "Produto adicionado com sucesso!\n";
+            system ("pause");
             goto inicio;
         
         default:
             cout << "Opcao invalida";
-        break;
+            cout << "Deseja finalizar a compra? [S] [N] \n";
+                cin >> opc2;
+                if(opc2 == 'S'|| opc2 == 's'){
+                    //chamar função de finalizar compra
+                    finalizar_compra(carrinho);
+                    break;
+	            }else{
+	                	goto inicio;
+					};
+        
 }
     case '2':
         cout << "ofertas do dia!\n";
@@ -120,28 +170,41 @@ void menu(Nopilha* carrinho){
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,2000,quant,"geladeira");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '2':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,1200,quant,"fogao");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '3':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,2200,quant,"microondas");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '4':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,2500,quant,"maquina de lavar");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             default: 
                 cout << "Opcao invalida";
+                cout << "Deseja finalizar a compra? [S] [N] \n";
+                cin >> opc2;
+                if(opc2 == 'S'|| opc2 == 's'){
+                    //chamar função de finalizar compra
+                    finalizar_compra(carrinho);
+                    break;
+	            }else{
+	                	goto inicio;
+					};
         }
     case '3':
         cout << "Ofertas do dia!\n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
@@ -152,28 +215,41 @@ void menu(Nopilha* carrinho){
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,10,quant,"arroz");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '2':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,5,quant,"feijao");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '3':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,3,quant,"macarrao");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '4':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,20,quant,"carne");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             default:
                 cout << "Opcao invalida";
+                cout << "Deseja finalizar a compra? [S] [N] \n";
+                cin >> opc2;
+                if(opc2 == 'S'|| opc2 == 's'){
+                    //chamar função de finalizar compra
+                    finalizar_compra(carrinho);
+                    break;
+	            }else{
+	                	goto inicio;
+					};
         }
     case '4':
         cout << "Ofertas do dia!\n";
@@ -184,28 +260,41 @@ void menu(Nopilha* carrinho){
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,10,quant,"camiseta");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '2':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,5,quant,"calca");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '3':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,3,quant,"casaco");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '4':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,20,quant,"sapato");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             default:
                 cout << "Opcao invalida";
+                cout << "Deseja finalizar a compra? [S] [N] \n";
+                cin >> opc2;
+                if(opc2 == 'S'|| opc2 == 's'){
+                    //chamar função de finalizar compra
+                    finalizar_compra(carrinho);
+                    break;
+	            }else{
+	                	goto inicio;
+					};
         }
     case '5':
         cout << "Ofertas do dia!\n";
@@ -216,31 +305,35 @@ void menu(Nopilha* carrinho){
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,10,quant,"livro 1");
-                cout << "Produto adicionado com sucesso!";
+                cout << "Produto adicionado com sucesso!\n";
+                system ("pause");
                 goto inicio;
             case '2':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,5,quant,"livro 2");
                 cout << "Produto adicionado com sucesso!";
+                system ("pause");
                 goto inicio;
             case '3':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,3,quant,"livro 3");
                 cout << "Produto adicionado com sucesso!";
+                system ("pause");
                 goto inicio;
             case '4':
                 cout << "Quantidade: ";
                 cin >> quant;
                 nozama(carrinho,20,quant,"livro 4");
                 cout << "Produto adicionado com sucesso!";
+                system ("pause");
                 goto inicio;
             default:
                 cout << "Opcao invalida\n";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
                 cin >> opc2;
-                if(opc2 == 'S'){
+                if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho);
                     break;
