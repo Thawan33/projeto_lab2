@@ -117,14 +117,17 @@ if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
 } else{
     pagamento:
+    double soma = 0;
     system("cls");
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n RESUMO DA COMPRA \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "Produtos: \n";
-    while(carrinho != NULL){
-        soma += carrinho->produto->preco * carrinho->produto->quant;
-        carrinho = carrinho->prox;
-    }
     ver_carrinho(carrinho,1);
+    Nopilha *aux = carrinho;
+       while(aux != NULL){
+        soma += aux->produto->preco * aux->produto->quant;
+        quantidade_total += aux->produto->quant;
+        aux = aux->prox;
+    }
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "O valor total: R$" << soma << endl;
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
