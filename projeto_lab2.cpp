@@ -33,10 +33,10 @@ Descritor* criar_lista(){
     return d;
 }
 
-void print(Nolista* lista){
+void print(Nolista* lista,int cont){
     if(lista != NULL){
-        cout << "quantidade de itens da compra: " << lista->quantidade_itens << " total da compra: " << lista->valor_compra << endl;
-        print(lista->prox);
+        cout << "Compra [" << cont << "] quantidade de itens: " << lista->quantidade_itens << endl << "Compra [" << cont << "] total da compra: R$" << lista->valor_compra << "\n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= \n";
+        print(lista->prox,cont+1);
     }
 }
 
@@ -95,6 +95,13 @@ Nopilha* remover_produto(Nopilha*& carrinho){
     }
 }
 
+void ver_carrinho(Nopilha* carrinho,int cont){
+    if(!isempty(carrinho)){
+        cout << "["<< cont << "] - "<< carrinho->produto->nome << " - R$" << carrinho->produto->preco << " - " << carrinho->produto->quant << " unidade(s)\n";
+        ver_carrinho(carrinho->prox,cont+1);
+    }
+}
+
 //função para retorna produto preço e quantidade
 void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     Item* produto = new Item;
@@ -103,22 +110,24 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     produto -> nome = nome;
     adcionar_produto(carrinho,produto);
 }
-void finalizar_compra(Nopilha* carrinho){
+void finalizar_compra(Nopilha* carrinho, Descritor* historico){
     double soma = 0;
+    int quantidade_total = 0;
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
 } else{
-    while(carrinho != NULL){
-        Nopilha* aux = remover_produto(carrinho);
-        soma += ((aux->produto->preco) * (aux->produto->quant));
-}
-}   pagamento:
+    
+        
+
+    pagamento:
     system("cls");
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n RESUMO DA COMPRA \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "Produtos: \n";
     while(carrinho != NULL){
         Nopilha* aux = remover_produto(carrinho);
         cout << aux->produto->nome << " - R$" << aux->produto->preco << " - " << aux->produto->quant << " unidade(s)\n";
+        soma += ((aux->produto->preco) * (aux->produto->quant));
+        quantidade_total += aux->produto->quant;
     }
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "O valor total da compra foi de: R$" << soma << endl;
@@ -144,7 +153,7 @@ if(carrinho == NULL){
             break;
         case '3':
             cout << "BOLETO\n";
-            cout << "O boleto foi enviado para o seu email\nVoce tem 3 dias até o vencimento :)\n";
+            cout << "O boleto foi enviado para o seu email\nVoce tem 3 dias ate o vencimento :)\n";
             break;
         case '4':
             cout << "PIX\nO codigo do pix foi enviado para o seu email\nVoce tem 30 minutos para pagar o pix :)\n";
@@ -156,18 +165,17 @@ if(carrinho == NULL){
     }
 
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    cout << "Obrigado por comprar na Nozama! Volte sempre :D";
-    
+    cout << "Obrigado por comprar na Nozama! :D \n";
+    append(historico,soma,quantidade_total);
+}
 }
 
 // FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
-void menu(Nopilha* carrinho){
+void menu(Nopilha* carrinho,Descritor* historico){
     char remove;
-    int cont = 0;
     char opc,opc2;
     string tamanho;
     int quant;
-    double preco;
     string nome;
     inicio:
     system("cls");
@@ -216,7 +224,7 @@ void menu(Nopilha* carrinho){
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
-                    finalizar_compra(carrinho);
+                    finalizar_compra(carrinho,historico);
                     break;
 	            }else{
 	                	goto inicio;
@@ -262,7 +270,7 @@ void menu(Nopilha* carrinho){
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
-                    finalizar_compra(carrinho);
+                    finalizar_compra(carrinho,historico);
                     break;
 	            }else{
 	                	goto inicio;
@@ -307,7 +315,7 @@ void menu(Nopilha* carrinho){
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
-                    finalizar_compra(carrinho);
+                    finalizar_compra(carrinho,historico);
                     break;
 	            }else{
 	                	goto inicio;
@@ -359,7 +367,7 @@ void menu(Nopilha* carrinho){
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
-                    finalizar_compra(carrinho);
+                    finalizar_compra(carrinho,historico);
                     break;
 	            }else{
 	                	goto inicio;
@@ -367,7 +375,7 @@ void menu(Nopilha* carrinho){
         }
     case '5':
         cout << "\n *** OFERTAS DO DIA! ***\n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-        cout << " [1] Para todos os garotos que já matei R$12,50 \n [2] As tranças do rei careca (VOL 1) - R$50 \n [3] A volta dos que nao foram - R$36,90 \n [4] Seneca: Como ser pai de menina R$19,90 \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n >  ";
+        cout << " [1] Para todos os garotos que ja matei R$12,50 \n [2] As trancas do rei careca (VOL 1) - R$50 \n [3] A volta dos que nao foram - R$36,90 \n [4] Seneca: Como ser pai de menina R$19,90 \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n >  ";
         cin >> opc2;
         switch(opc2){
             case '1':
@@ -404,7 +412,7 @@ void menu(Nopilha* carrinho){
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
-                    finalizar_compra(carrinho);
+                    finalizar_compra(carrinho,historico);
                     break;
 	            }else{
 	                	goto inicio;
@@ -416,28 +424,23 @@ void menu(Nopilha* carrinho){
         if(carrinho == NULL){
         	cout << "Nenhum produto adicionado :( ";
         } else{
-        while(carrinho != NULL){
-            Nopilha* aux = remover_produto(carrinho);
-            cont ++;
-            cout << "["<< cont << "] - "<< aux->produto->nome << " - R$" << aux->produto->preco << " - " << aux->produto->quant << " unidade(s)\n";
-        }
+        ver_carrinho(carrinho,1);
         }
         cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         cout << "Deseja cancelar o carrinho? [S] [N]\n >";
+        cin >> remove;
             if(remove == 'S' || remove == 's'){
-             carrinho == NULL;
+             carrinho = NULL;
+             goto inicio;
             }
             else{
                 goto inicio;          
               }
         cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         break;
-
-    
-
 	case '7':
         //chamar função de finalizar compra
-        finalizar_compra(carrinho);
+        finalizar_compra(carrinho,historico);
         break;
     default:
         cout << "Opcao invalida";
@@ -469,9 +472,29 @@ void usuario(){
 }
 
 int main(){
+    char opc;
     Nopilha* carrinho = criar_Nopilha();
     usuario();
-    menu(carrinho);
+    Descritor* historico = criar_lista();
     
+    do{
+        menu(carrinho,historico);
+        cout << "Deseja fazer mais compras? [S] para sim: ";
+        cin >> opc;
+        system("cls");
+    }
+    while(opc == 'S' || opc == 's');
+
+    do{
+        cout << "deseja ver seu historico de compras? [S] para sim: ";
+        cin >> opc;
+        system("cls");
+    }
+    while(opc != 'S' && opc != 's');
+    if(opc == 's' || opc == 'S'){
+        print(historico->ini,1);
+    }
+    
+    system("pause");
     return 0;
 }
