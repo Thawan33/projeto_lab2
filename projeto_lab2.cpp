@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 struct Item{
@@ -148,6 +149,7 @@ if(carrinho == NULL){
                 goto pagamento;
             }
             cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+            cout << fixed << setprecision(2);
             cout << "Voce escolheu pagar em " << parcelas << "x de R$" << (soma/parcelas) + ((soma/parcelas)*0.05) << endl;
             system("pause");
             break;
