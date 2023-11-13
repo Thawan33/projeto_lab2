@@ -816,7 +816,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                         goto inicio;
                     }
                 else{
-                        nozama(carrinho,12.50,quant,"livro 1");
+                        nozama(carrinho,12.50,quant,"Para todos os garotos que ja matei");
                         cout << "Produto adicionado com sucesso!\n";
                         quantidade_max_livro1 -= quant;
                         system ("pause");
@@ -847,7 +847,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                         goto inicio;;
                     }
                 	    else{
-                            nozama(carrinho,50,quant,"livro 2");
+                            nozama(carrinho,50,quant,"As trancas do rei careca (VOL 1)");
                             cout << "Produto adicionado com sucesso!\n";
                             quantidade_max_livro2 -= quant;
                             system ("pause");
@@ -877,7 +877,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                         goto inicio;
                     }
                 	    else{
-                            nozama(carrinho,36.90,quant,"livro 3");
+                            nozama(carrinho,36.90,quant,"A volta dos que nao foram");
                             cout << "Produto adicionado com sucesso!\n";
                             quantidade_max_livro3 -= quant;
                             system ("pause");
@@ -908,7 +908,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                         goto inicio;
                     }
                 	    else{
-                            nozama(carrinho,19.90,quant,"livro 4");
+                            nozama(carrinho,19.90,quant,"Seneca: Como ser pai de menina");
                 	        cout << "Produto adicionado com sucesso!\n";
                 	        quantidade_max_livro4 -= quant;
                             system ("pause");
