@@ -111,7 +111,6 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     adcionar_produto(carrinho,produto);
 }
 void finalizar_compra(Nopilha* carrinho, Descritor* historico){
-    double soma = 0;
     int quantidade_total = 0;
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
