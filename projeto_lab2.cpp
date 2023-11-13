@@ -120,6 +120,10 @@ if(carrinho == NULL){
     system("cls");
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n RESUMO DA COMPRA \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "Produtos: \n";
+    while(carrinho != NULL){
+        soma += carrinho->produto->preco * carrinho->produto->quant;
+        carrinho = carrinho->prox;
+    }
     ver_carrinho(carrinho,1);
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "O valor total: R$" << soma << endl;
