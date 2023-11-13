@@ -111,6 +111,7 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     adcionar_produto(carrinho,produto);
 }
 void finalizar_compra(Nopilha* carrinho, Descritor* historico){
+    double soma = 0;
     int quantidade_total = 0;
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
@@ -218,10 +219,6 @@ void menu(Nopilha* carrinho,Descritor* historico){
     cout << "CATEGORIA DE PRODUTOS DISPONIVEIS \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << " [1] Eletronicos \n [2] Eletrodomesticos \n [3] Alimentos \n [4] vestuario \n [5] Livros \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n [6] Carrinho de compras \n [7] Finalizar compra \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
     cin >> opc;
-    while(opc > '7' || opc <= '0'){
-        cout << "Opcao invalida digite novamente: ";
-        cin >> opc;
-    }
     switch(opc){
     case '1':
         cout << "\n *** OFERTAS DO DIA! ***\n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
@@ -346,13 +343,14 @@ void menu(Nopilha* carrinho,Descritor* historico){
             goto inicio;}
         
         default:
-            cout << "Opcao invalida";
+            cout << "Opcao invalida\n";
             cout << "Deseja finalizar a compra? [S] [N] \n";
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho,historico);
-                    break;
+                    system ("pause");
+                    goto inicio;
 	            }else{
 	                	goto inicio;
 					};
@@ -480,13 +478,14 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 system ("pause");
                 goto inicio;}
             default: 
-                cout << "Opcao invalida";
+                cout << "Opcao invalida\n";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho,historico);
-                    break;
+                    system ("pause");
+                    goto inicio;
 	            }else{
 	                	goto inicio;
 					};
@@ -613,13 +612,14 @@ void menu(Nopilha* carrinho,Descritor* historico){
                     system ("pause");
                     goto inicio;}
             default:
-                cout << "Opcao invalida";
+                cout << "Opcao invalida\n";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho,historico);
-                    break;
+                    system ("pause");
+                    goto inicio;
 	            }else{
 	                	goto inicio;
 					};
@@ -780,13 +780,14 @@ void menu(Nopilha* carrinho,Descritor* historico){
                         goto inicio;
                     }
             default:
-                cout << "Opcao invalida \n";
+                cout << "Opcao invalida\n";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
                 cin >> opc2;
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho,historico);
-                    break;
+                    system ("pause");
+                    goto inicio;
 	            }else{
 	                	goto inicio;
 					};
@@ -926,7 +927,8 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 if(opc2 == 'S'|| opc2 == 's'){
                     //chamar função de finalizar compra
                     finalizar_compra(carrinho,historico);
-                    break;
+                    system ("pause");
+                    goto inicio;
 	            }else{
 	                	goto inicio;
 					};
@@ -957,8 +959,8 @@ void menu(Nopilha* carrinho,Descritor* historico){
         break;
     default:
         cout << "Opcao invalida\n";
-        system("pause");
         goto inicio;
+    
 }
 }
 
