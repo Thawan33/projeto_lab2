@@ -111,6 +111,7 @@ void nozama(Nopilha*& carrinho,double preco,int quant,string nome){
     adcionar_produto(carrinho,produto);
 }
 void finalizar_compra(Nopilha* carrinho, Descritor* historico){
+    double soma = 0;
     int quantidade_total = 0;
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
@@ -137,12 +138,6 @@ if(carrinho == NULL){
         case '1':
             cout << "CARTAO DE CREDITO\n";
             cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-            cout << "ATENCAO: Nao parcelamos compras abaixo de R$100\n";
-            if(soma < 100){
-                cout << "Valor minimo nao atingido :( \n";
-                system ("pause");
-                goto pagamento;
-            }
             cout << "Deseja dividir em quantas parcelas? \n> ";
             int parcelas;
             cin >> parcelas;
