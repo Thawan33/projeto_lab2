@@ -227,7 +227,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
         switch(opc2){
         case '1':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 20\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_notebook << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -256,7 +256,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
             goto inicio;}
         case '2':
             cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 150\n";
+                cout << "Quantidade disponivel: " << quantidade_max_celular << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -285,7 +285,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
             goto inicio;}
         case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 35\n";
+                cout << "Quantidade disponivel: " << quantidade_max_videogame << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -314,7 +314,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
             goto inicio;}
         case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 200\n";
+                cout << "Quantidade disponivel: " << quantidade_max_televisao << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -362,7 +362,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
         switch(opc2){
             case '1':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 45\n";
+                cout << "Quantidade disponivel: " << quantidade_max_geladeira << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";;
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -391,7 +391,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '2':
                  cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 17\n";
+                cout << "Quantidade disponivel: " << quantidade_max_fogao << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -420,7 +420,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 60\n";
+                cout << "Quantidade disponivel: " << quantidade_max_microondas << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -449,7 +449,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 25\n";
+                cout << "Quantidade disponivel: " << quantidade_max_maquina <<"\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"; 
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -495,7 +495,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
         switch(opc2){
             case '1':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 100\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_arroz << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -524,7 +524,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '2':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 200\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_feijao << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -553,7 +553,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 500\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_macarrao << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -582,7 +582,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;}
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 350kg\n";
+                cout << "Quantidade disponivel: " << quantidade_max_carne << "Kg\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade (Kg): ";
                 cin >> quant;
@@ -636,7 +636,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> tamanho;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                cout << "Quantidade disponivel: 200 unidades\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_camiseta << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -673,7 +673,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                     cin >> tamanho;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }                       
-                cout << "Quantidade disponivel: 20 unidades\n";
+                cout << "Quantidade disponivel: " << quantidade_max_calca << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -710,7 +710,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                     cin >> tamanho;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                cout << "Quantidade disponivel: 2\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_casaco << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -748,7 +748,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                     cin >> tamanho;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                 cout << "Quantidade disponivel: 200 pares\n";
+                 cout << "Quantidade disponivel: "<< quantidade_max_sapato << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -795,7 +795,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
         switch(opc2){
             case '1':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 30\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_livro1 << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -826,7 +826,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                     }
             case '2':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 10\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_livro2 << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -856,7 +856,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                             goto inicio;
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 50\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_livro3 << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
@@ -887,7 +887,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	    }   
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                cout << "Quantidade disponivel: 1\n";
+                cout << "Quantidade disponivel: "<< quantidade_max_livro4 << "\n";
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
