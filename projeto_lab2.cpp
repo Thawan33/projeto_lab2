@@ -850,8 +850,23 @@ void usuario(){
     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 }
 
+void apresentacao(){
+    cout << "\033[33m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\033[32m\n";
+    cout << "        \033[32mNOZAMA\033[0m - \033[33mA MELHOR LOJA ONLINE!\n";
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\033[0m\n\n\n";
+    cout << "   \033[32m N   N  OOO   ZZZZ  A A A  M   M  A A A" << endl;
+    cout << "    NN  N O   O     Z  A   A  MM MM  A   A" << endl;
+    cout << "    N N N O   O    Z   AAAAA  M M M  AAAAA" << endl;
+    cout << "    N  NN O   O   Z    A   A  M   M  A   A" << endl;
+    cout << "    N   N  OOO   ZZZZ  A   A  M   M  A   A\033[0m\n\n\n";
+    cout << "\033[33m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\033[0m\n\n\n";
+    system("pause");
+    system ("cls");
+
+}
 
 int main(){
+    apresentacao();
     char opc;
     Nopilha* carrinho = criar_Nopilha();
     usuario();
