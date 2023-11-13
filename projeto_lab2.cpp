@@ -136,6 +136,8 @@ if(carrinho == NULL){
     char opc;
     cin >> opc;
     switch(opc){
+    	case '0':
+    		break;
         case '1':
             cout << "CARTAO DE CREDITO\n";
             cout << "Deseja dividir em quantas parcelas? \n> ";
@@ -172,6 +174,32 @@ if(carrinho == NULL){
 
 // FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
 void menu(Nopilha* carrinho,Descritor* historico){
+// QUANTIDADE DOS PRODUTOS
+    int quantidade_max_notebook = 20;
+    int quantidade_max_celular = 150;
+    int quantidade_max_videogame = 35;
+    int quantidade_max_televisao = 200;
+    int quantidade_max_geladeira = 45;
+    int quantidade_max_fogao = 17;
+    int quantidade_max_microondas = 60;
+    int quantidade_max_maquina = 25;
+    int quantidade_max_arroz = 100;
+    int quantidade_max_feijao = 200;
+    int quantidade_max_macarrao = 500;
+    int quantidade_max_carne = 350;
+    int quantidade_max_camiseta = 200;
+    int quantidade_max_calca = 20;
+    int quantidade_max_casaco = 2;
+    int quantidade_max_sapato = 200;
+    int quantidade_max_livro1 = 30;
+    int quantidade_max_livro2 = 10;
+    int quantidade_max_livro3 = 50;
+    int quantidade_max_livro4 = 1;
+
+// FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
+    int quantidade_max = 0;
+    int cont = 1;
+    string email;
     char remove;
     char opc,opc2;
     string tamanho;
@@ -190,31 +218,91 @@ void menu(Nopilha* carrinho,Descritor* historico){
         cin >> opc2;
         switch(opc2){
         case '1':
-            cout << "Quantidade: ";
-            cin >> quant;
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 20\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade: ";
+                cin >> quant;
+                while(quant > quantidade_max_notebook){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
             nozama(carrinho,2000,quant,"notebook UltraBook 15");
             cout << "Produto adicionado com sucesso!\n";
+            quantidade_max_notebook -= quant;
             system ("pause");
             goto inicio;
         case '2':
-            cout << "Quantidade: ";
-            cin >> quant;
+            cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 150\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade: ";
+                cin >> quant;
+                while(quant > quantidade_max_celular){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
             nozama(carrinho,1200,quant,"celular UIphone 26");
             cout << "Produto adicionado com sucesso!\n";
+            quantidade_max_celular -= quant; 
             system ("pause");
             goto inicio;
         case '3':
-            cout << "Quantidade: ";
-            cin >> quant;
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 35\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade: ";
+                cin >> quant;
+                while(quant > quantidade_max_videogame){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
             nozama(carrinho,2200,quant,"videogame Station Play 5");
             cout << "Produto adicionado com sucesso!\n";
+            quantidade_max_videogame -= quant;
             system ("pause");
             goto inicio;
         case '4':
-            cout << "Quantidade: ";
-            cin >> quant;
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 200\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade: ";
+                cin >> quant;
+                while(quant > quantidade_max_televisao){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
             nozama(carrinho,2500,quant,"televisao Mansung Smart 4K");
             cout << "Produto adicionado com sucesso!\n";
+            quantidade_max_televisao -= quant;
             system ("pause");
             goto inicio;
         
@@ -237,31 +325,91 @@ void menu(Nopilha* carrinho,Descritor* historico){
         cin >> opc2;
         switch(opc2){
             case '1':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 45\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";;
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_geladeira){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,2000,quant,"geladeira");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_geladeira -= quant;
                 system ("pause");
                 goto inicio;
             case '2':
+                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 17\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_fogao){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,1200,quant,"fogao");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_fogao -= quant;
                 system ("pause");
                 goto inicio;
             case '3':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 60\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_microondas){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,2200,quant,"microondas");
                 cout << "Produto adicionado com sucesso!\n";
                 system ("pause");
+                quantidade_max_microondas -= quant;
                 goto inicio;
             case '4':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 25\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"; 
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_maquina){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,2500,quant,"maquina de lavar");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_maquina -= quant;
                 system ("pause");
                 goto inicio;
             default: 
@@ -282,31 +430,91 @@ void menu(Nopilha* carrinho,Descritor* historico){
         cin >> opc2;
         switch(opc2){
             case '1':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 100\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_arroz){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,10,quant,"arroz");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_arroz -= quant;
                 system ("pause");
                 goto inicio;
             case '2':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 200\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_feijao){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,5,quant,"feijao");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_feijao -= quant;
                 system ("pause");
                 goto inicio;
             case '3':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 500\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_macarrao){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,3,quant,"macarrao");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_macarrao -= quant;
                 system ("pause");
                 goto inicio;
             case '4':
-                cout << "Quantidade: ";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 350kg\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade (Kg): ";
                 cin >> quant;
+                while(quant > quantidade_max_carne){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,20,quant,"carne");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_carne -= quant;
                 system ("pause");
                 goto inicio;
             default:
@@ -330,35 +538,117 @@ void menu(Nopilha* carrinho,Descritor* historico){
             case '1':
             	cout << "Tamanhos disponiveis: [P] [M] [GG]\n > ";
             	cin >> tamanho;
-                cout << "\nQuantidade: ";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                while(tamanho != "P" && tamanho != "M" && tamanho != "GG"){
+                	cout << "Tamanho invalido, digite novamente: ";
+                	cin >> tamanho;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                cout << "Quantidade disponivel: 200 unidades\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_camiseta){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,100,quant,"camiseta");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_camiseta -= quant;
                 system ("pause");
                 goto inicio;
             case '2':
             	cout << "Tamanhos disponiveis: [37] [39] [42]\n > ";
             	cin >> tamanho;
+                while(tamanho != "37" && tamanho != "39" && tamanho != "42"){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                    cout << "Tamanho invalido, digite novamente: ";
+                    cin >> tamanho;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }                       
+                cout << "Quantidade disponivel: 20 unidades\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_calca){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,50,quant,"calca");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_calca -= quant;
                 system ("pause");
                 goto inicio;
             case '3':
                 cout << "Tamanhos disponiveis: [P] [M] [G]\n > ";
             	cin >> tamanho;
+                while(tamanho != "P" && tamanho != "M" && tamanho != "G"){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                    cout << "Tamanho invalido, digite novamente: ";
+                    cin >> tamanho;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                cout << "Quantidade disponivel: 2\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_casaco){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,300,quant,"casaco");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_casaco -= quant;
                 system ("pause");
                 goto inicio;
             case '4':
+                cout << "Tamanhos disponiveis: [36] [37] [39] [40] [42] [44]\n > ";
+                cin >> tamanho;
+                while(tamanho != "36" && tamanho != "37" && tamanho != "39" && tamanho != "40" && tamanho != "42" && tamanho != "44"){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                    cout << "Tamanho invalido, digite novamente: ";
+                    cin >> tamanho;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                 cout << "Quantidade disponivel: 200 pares\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_sapato){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,250,quant,"sapato");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_sapato -= quant;
                 system ("pause");
                 goto inicio;
             default:
@@ -379,31 +669,99 @@ void menu(Nopilha* carrinho,Descritor* historico){
         cin >> opc2;
         switch(opc2){
             case '1':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 30\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_livro1){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+
                 nozama(carrinho,12.50,quant,"livro 1");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_livro1 -= quant;
                 system ("pause");
                 goto inicio;
             case '2':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 10\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_livro2){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,50,quant,"livro 2");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_livro2 -= quant;
                 system ("pause");
                 goto inicio;
             case '3':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 50\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
+                while(quant > quantidade_max_livro3){
+                	cout << "Quantidade maxima excedida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 1){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
                 nozama(carrinho,36.90,quant,"livro 3");
                 cout << "Produto adicionado com sucesso!\n";
+                quantidade_max_livro3 -= quant;
                 system ("pause");
                 goto inicio;
             case '4':
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                cout << "Quantidade disponivel: 1\n";
+                cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade: ";
                 cin >> quant;
-                nozama(carrinho,19.90,quant,"livro 4");
-                cout << "Produto adicionado com sucesso!\n";
+                while(quant > quantidade_max_livro4){
+                        cout << "Quantidade maxima excedida, digite novamente: ";
+                        cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                while (quant < 0){
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                	cout << "Quantidade invalida, digite novamente: ";
+                	cin >> quant;
+                    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+                }
+                if(quantidade_max == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                    }
+                	    else{
+                            nozama(carrinho,19.90,quant,"livro 4");
+                	        cout << "Produto adicionado com sucesso!\n";
+                	        quantidade_max_livro4 -= quant;
+                	    }
                 system ("pause");
                 goto inicio;
             default:
@@ -420,13 +778,13 @@ void menu(Nopilha* carrinho,Descritor* historico){
         }
     case '6':
         system("cls");
-        cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n CARRINHO DE COMPRAS \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+        cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n CARRINHO DE COMPRAS \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         if(carrinho == NULL){
-        	cout << "Nenhum produto adicionado :( ";
+        	cout << "Nenhum produto adicionado :( \n";
         } else{
         ver_carrinho(carrinho,1);
         }
-        cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+        cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         cout << "Deseja cancelar o carrinho? [S] [N]\n >";
         cin >> remove;
             if(remove == 'S' || remove == 's'){
@@ -436,7 +794,7 @@ void menu(Nopilha* carrinho,Descritor* historico){
             else{
                 goto inicio;          
               }
-        cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+        cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
         break;
 	case '7':
         //chamar função de finalizar compra
@@ -449,12 +807,25 @@ void menu(Nopilha* carrinho,Descritor* historico){
 }
 }
 void usuario(){
-    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n" << endl;
-    string usuario, senha_teste, login, senha_real;
-    cout << "**Bem vindo a Nozama!\nPara iniciar, crie um usuario e uma senha.\nUsuario: " << endl;
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+    string usuario, senha_teste, login, senha_real, senha_novamente;
+    cout << "Bem vindo a Nozama!\nPara iniciar, crie um usuario e uma senha.\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n>> Usuario: ";
     cin >> usuario;
     cout << ">> Crie uma senha: ";
     cin >> senha_teste;
+    cout << ">> Digite a senha novamente: ";
+    cin >> senha_novamente;
+    while(senha_teste != senha_novamente){
+    	system("cls");
+    	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-==-=-=-=-=\n";
+    	cout << "** As senhas estao diferentes, digite novamente **\n";
+    	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-==-=-=-=-=\n";
+    	cout << ">> Crie uma senha: ";
+    	cin >> senha_teste;
+    	cout << ">> Digite a senha novamente: ";
+    	cin >> senha_novamente;
+    	cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+	}
     system("cls");
     cout << "-=-=-=-=-=-=-=-=- LOGIN -=-=-=-=-=-=-=-=-" << endl;
     cout << ">> Usuario: ";
@@ -462,14 +833,16 @@ void usuario(){
     cout << ">> Senha: ";
     cin >> senha_real;
     while(login != usuario or senha_real != senha_teste){
-        cout << ">> As informacoes nao conferem, por favor, tente novamente:" << endl;
+        system("cls");
+        cout << ">> Usuario ou senha incorretos, por favor, tente novamente\n";
         cout << ">> Usuario: ";
         cin >> login;
         cout << ">> Senha: ";
         cin >> senha_real;
     }
-    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n" << endl;
+    cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 }
+
 
 int main(){
     char opc;
@@ -479,14 +852,17 @@ int main(){
     
     do{
         menu(carrinho,historico);
-        cout << "Deseja fazer mais compras? [S] para sim: ";
+        cout << "Comprar Novamente: [S] [N]\n > ";
         cin >> opc;
         system("cls");
     }
     while(opc == 'S' || opc == 's');
+    cout << "Obrigado por comprar na Nozama! Volte Sempre :D \n";
+    system("pause");
+    system("cls");
 
     do{
-        cout << "deseja ver seu historico de compras? [S] para sim: ";
+        cout << "Visualizar Minhas Compras: [S] [N]\n > ";
         cin >> opc;
         system("cls");
     }
@@ -494,6 +870,7 @@ int main(){
     if(opc == 's' || opc == 'S'){
         print(historico->ini,1);
     }
+
     
     system("pause");
     return 0;
