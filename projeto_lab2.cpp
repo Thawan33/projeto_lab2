@@ -116,19 +116,11 @@ void finalizar_compra(Nopilha* carrinho, Descritor* historico){
 if(carrinho == NULL){
 	cout << "Nenhum produto adicionado :( ";
 } else{
-    
-        
-
     pagamento:
     system("cls");
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n RESUMO DA COMPRA \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "Produtos: \n";
-    while(carrinho != NULL){
-        Nopilha* aux = remover_produto(carrinho);
-        cout << aux->produto->nome << " - R$" << aux->produto->preco << " - " << aux->produto->quant << " unidade(s)\n";
-        soma += ((aux->produto->preco) * (aux->produto->quant));
-        quantidade_total += aux->produto->quant;
-    }
+    ver_carrinho(carrinho,1);
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << "O valor total: R$" << soma << endl;
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
@@ -150,7 +142,7 @@ if(carrinho == NULL){
             cin >> parcelas;
             cout << "ATENCAO:\nParcelamos em ate 12x\n A cada parcela sera acrescentado 5% do valor total\n";
             if (parcelas > 12 || parcelas < 1 || parcelas == 0){
-                cout << "Numero de parcelas invalido";
+                cout << "Numero de parcelas invalido\n";
                 system ("pause");
                 goto pagamento;
             }
@@ -204,8 +196,6 @@ void menu(Nopilha* carrinho,Descritor* historico){
     int quantidade_max_livro4 = 1;
 
 // FUNÇÃO PARA A ESCOLHA DOS PRODUTOS
-    int quantidade_max = 0;
-    int cont = 1;
     string email;
     char remove;
     char opc,opc2;
@@ -241,11 +231,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_notebook == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
             nozama(carrinho,2000,quant,"notebook UltraBook 15");
             cout << "Produto adicionado com sucesso!\n";
             quantidade_max_notebook -= quant;
             system ("pause");
-            goto inicio;
+            goto inicio;}
         case '2':
             cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 150\n";
@@ -263,11 +260,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_celular== 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
             nozama(carrinho,1200,quant,"celular UIphone 26");
             cout << "Produto adicionado com sucesso!\n";
             quantidade_max_celular -= quant; 
             system ("pause");
-            goto inicio;
+            goto inicio;}
         case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 35\n";
@@ -285,11 +289,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_videogame == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
             nozama(carrinho,2200,quant,"videogame Station Play 5");
             cout << "Produto adicionado com sucesso!\n";
             quantidade_max_videogame -= quant;
             system ("pause");
-            goto inicio;
+            goto inicio;}
         case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 200\n";
@@ -307,11 +318,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+            if(quantidade_max_televisao == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
             nozama(carrinho,2500,quant,"televisao Mansung Smart 4K");
             cout << "Produto adicionado com sucesso!\n";
             quantidade_max_televisao -= quant;
             system ("pause");
-            goto inicio;
+            goto inicio;}
         
         default:
             cout << "Opcao invalida";
@@ -348,11 +366,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_geladeira == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,2000,quant,"geladeira");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_geladeira -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             case '2':
                  cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 17\n";
@@ -370,11 +395,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_fogao == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,1200,quant,"fogao");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_fogao -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 60\n";
@@ -392,11 +424,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_microondas == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,2200,quant,"microondas");
                 cout << "Produto adicionado com sucesso!\n";
                 system ("pause");
                 quantidade_max_microondas -= quant;
-                goto inicio;
+                goto inicio;}
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 25\n";
@@ -414,11 +453,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_maquina == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,2500,quant,"maquina de lavar");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_maquina -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             default: 
                 cout << "Opcao invalida";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
@@ -453,11 +499,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_arroz == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,10,quant,"arroz");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_arroz -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             case '2':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 200\n";
@@ -475,11 +528,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_feijao == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,5,quant,"feijao");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_feijao -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 500\n";
@@ -497,11 +557,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
+                if(quantidade_max_macarrao == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
                 nozama(carrinho,3,quant,"macarrao");
                 cout << "Produto adicionado com sucesso!\n";
                 quantidade_max_macarrao -= quant;
                 system ("pause");
-                goto inicio;
+                goto inicio;}
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 350kg\n";
@@ -519,11 +586,18 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,20,quant,"carne");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_carne -= quant;
-                system ("pause");
-                goto inicio;
+                if(quantidade_max_carne == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
+                    nozama(carrinho,20,quant,"carne");
+                    cout << "Produto adicionado com sucesso!\n";
+                    quantidade_max_carne -= quant;
+                    system ("pause");
+                    goto inicio;}
             default:
                 cout << "Opcao invalida";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
@@ -566,11 +640,19 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,100,quant,"camiseta");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_camiseta -= quant;
-                system ("pause");
-                goto inicio;
+                if(quantidade_max_camiseta == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                } else{
+                        nozama(carrinho,100,quant,"camiseta");
+                        cout << "Produto adicionado com sucesso!\n";
+                        quantidade_max_camiseta -= quant;
+                        system ("pause");
+                        goto inicio;
+                }
             case '2':
             	cout << "Tamanhos disponiveis: [37] [39] [42]\n > ";
             	cin >> tamanho;
@@ -595,11 +677,19 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,50,quant,"calca");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_calca -= quant;
-                system ("pause");
-                goto inicio;
+                if(quantidade_max_calca == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;}
+                else{
+                    nozama(carrinho,50,quant,"calca");
+                    cout << "Produto adicionado com sucesso!\n";
+                    quantidade_max_calca -= quant;
+                    system ("pause");
+                    goto inicio;
+                }
             case '3':
                 cout << "Tamanhos disponiveis: [P] [M] [G]\n > ";
             	cin >> tamanho;
@@ -624,11 +714,20 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,300,quant,"casaco");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_casaco -= quant;
-                system ("pause");
-                goto inicio;
+                 if(quantidade_max_casaco == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                    }
+                    else{
+                        nozama(carrinho,300,quant,"casaco");
+                        cout << "Produto adicionado com sucesso!\n";
+                        quantidade_max_casaco -= quant;
+                        system ("pause");
+                        goto inicio;
+                    }
             case '4':
                 cout << "Tamanhos disponiveis: [36] [37] [39] [40] [42] [44]\n > ";
                 cin >> tamanho;
@@ -652,12 +751,20 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cout << "Quantidade invalida, digite novamente: ";
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-                }
-                nozama(carrinho,250,quant,"sapato");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_sapato -= quant;
-                system ("pause");
-                goto inicio;
+                } if(quantidade_max_sapato == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                    }
+                    else{
+                        nozama(carrinho,250,quant,"sapato");
+                        cout << "Produto adicionado com sucesso!\n";
+                        quantidade_max_sapato -= quant;
+                        system ("pause");
+                        goto inicio;
+                    }
             default:
                 cout << "Opcao invalida";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
@@ -692,12 +799,20 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-
-                nozama(carrinho,12.50,quant,"livro 1");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_livro1 -= quant;
-                system ("pause");
-                goto inicio;
+                 if(quantidade_max_livro1 == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                    }
+                else{
+                        nozama(carrinho,12.50,quant,"livro 1");
+                        cout << "Produto adicionado com sucesso!\n";
+                        quantidade_max_livro1 -= quant;
+                        system ("pause");
+                        goto inicio;
+                    }
             case '2':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 10\n";
@@ -715,11 +830,19 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,50,quant,"livro 2");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_livro2 -= quant;
-                system ("pause");
-                goto inicio;
+                if(quantidade_max_livro2 == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;;
+                    }
+                	    else{
+                            nozama(carrinho,50,quant,"livro 2");
+                            cout << "Produto adicionado com sucesso!\n";
+                            quantidade_max_livro2 -= quant;
+                            system ("pause");
+                            goto inicio;
             case '3':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 50\n";
@@ -737,11 +860,20 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                nozama(carrinho,36.90,quant,"livro 3");
-                cout << "Produto adicionado com sucesso!\n";
-                quantidade_max_livro3 -= quant;
-                system ("pause");
-                goto inicio;
+                if(quantidade_max_livro3 == 0){
+                        cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
+                        cin >> email;
+                        cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
+                    }
+                	    else{
+                            nozama(carrinho,36.90,quant,"livro 3");
+                            cout << "Produto adicionado com sucesso!\n";
+                            quantidade_max_livro3 -= quant;
+                            system ("pause");
+                            goto inicio;
+                	    }   
             case '4':
                 cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 cout << "Quantidade disponivel: 1\n";
@@ -759,18 +891,20 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 	cin >> quant;
                     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
                 }
-                if(quantidade_max == 0){
+                if(quantidade_max_livro4 == 0){
                         cout << "Todos foram vendidos :(\nDeixe seu email para receber um aviso quando o produto estiver disponivel novamente: ";
                         cin >> email;
                         cout << "\nObrigado! :D\n";
+                        system("pause");
+                        goto inicio;
                     }
                 	    else{
                             nozama(carrinho,19.90,quant,"livro 4");
                 	        cout << "Produto adicionado com sucesso!\n";
                 	        quantidade_max_livro4 -= quant;
-                	    }
-                system ("pause");
-                goto inicio;
+                            system ("pause");
+                            goto inicio;
+                        }
             default:
                 cout << "Opcao invalida\n";
                 cout << "Deseja finalizar a compra? [S] [N] \n";
@@ -782,7 +916,8 @@ void menu(Nopilha* carrinho,Descritor* historico){
 	            }else{
 	                	goto inicio;
 					};
-        }
+                        }
+                }
     case '6':
         system("cls");
         cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n CARRINHO DE COMPRAS \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
@@ -802,17 +937,17 @@ void menu(Nopilha* carrinho,Descritor* historico){
                 goto inicio;          
               }
         cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-        break;
 	case '7':
         //chamar função de finalizar compra
         finalizar_compra(carrinho,historico);
         break;
     default:
-        cout << "Opcao invalida";
+        cout << "Opcao invalida\n";
         goto inicio;
+    
+}
+}
 
-}
-}
 void usuario(){
     cout << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     string usuario, senha_teste, login, senha_real, senha_novamente;
