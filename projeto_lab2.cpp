@@ -130,25 +130,32 @@ if(carrinho == NULL){
         quantidade_total += aux->produto->quant;
     }
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    cout << "O valor total da compra foi de: R$" << soma << endl;
+    cout << "O valor total: R$" << soma << endl;
     cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
     cout << " Forma de pagamento: \n [1] Cartao de credito \n [2] Cartao de debito \n [3] Boleto \n [4] Pix \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n > ";
     char opc;
     cin >> opc;
     switch(opc){
-    	case '0':
-    		break;
         case '1':
             cout << "CARTAO DE CREDITO\n";
+            cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+            cout << "ATENCAO: Nao parcelamos compras abaixo de R$100\n";
+            if(soma < 100){
+                cout << "Valor minimo nao atingido :( \n";
+                system ("pause");
+                goto pagamento;
+            }
             cout << "Deseja dividir em quantas parcelas? \n> ";
             int parcelas;
             cin >> parcelas;
-            if (parcelas > 12 || parcelas < 1){
+            cout << "ATENCAO:\nParcelamos em ate 12x\n A cada parcela sera acrescentado 5% do valor total\n";
+            if (parcelas > 12 || parcelas < 1 || parcelas == 0){
                 cout << "Numero de parcelas invalido";
                 system ("pause");
                 goto pagamento;
             }
-            cout << "\nO valor das parcelas sera de: R$" << soma/parcelas << endl;
+            cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+            cout << "Voce escolheu pagar em " << parcelas << "x de R$" << (soma/parcelas) + ((soma/parcelas)*0.05) << endl;
             break;
         case '2':
             cout << "CARTAO DE DEBITO\nEm breve voce recebera um email com o comprovante de pagamento\n";
