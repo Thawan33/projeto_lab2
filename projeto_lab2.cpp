@@ -155,16 +155,20 @@ if(carrinho == NULL){
             }
             cout << " -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
             cout << "Voce escolheu pagar em " << parcelas << "x de R$" << (soma/parcelas) + ((soma/parcelas)*0.05) << endl;
+            system("pause");
             break;
         case '2':
-            cout << "CARTAO DE DEBITO\nEm breve voce recebera um email com o comprovante de pagamento\n";
+            cout << "CARTAO DE DEBITO\nEm breve voce recebera um email com o comprovante de pagamento :)\n";
+            system("pause");
             break;
         case '3':
             cout << "BOLETO\n";
             cout << "O boleto foi enviado para o seu email\nVoce tem 3 dias ate o vencimento :)\n";
+            system("pause");
             break;
         case '4':
             cout << "PIX\nO codigo do pix foi enviado para o seu email\nVoce tem 30 minutos para pagar o pix :)\n";
+            system("pause");
             break;
         default:
             cout << "Opcao invalida";
@@ -1033,6 +1037,7 @@ int main(){
     while(opc != 'S' && opc != 's');
     if(opc == 's' || opc == 'S'){
         print(historico->ini,1);
+        ver_carrinho(carrinho, 1);
     }
 
     
